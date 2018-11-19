@@ -26,6 +26,11 @@ def initialize_system():
     # get config_dir path
     config_dir = get_config_dir()
 
+    # exit if lm_sensors not present
+    if not os.path.isfile("/usr/bin/sensors"):
+        print("fatal! lm_sensors not found")
+        sys.exit(1)
+
     # create config_dir if not present
     if not os.isdir(config_dir):
         try:
