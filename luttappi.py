@@ -7,6 +7,7 @@ import os
 import pwd
 import pathlib
 import sys
+import json
 
 
 # generate the config directory path
@@ -40,6 +41,13 @@ def initialize_system():
             sys.exit(1)
     
     # initialize config_file if not present
+    if not os.path.isfile(os.path.join(config_dir, "config")):
+        configuration = {
+            "update_interval": 300
+        }
+
+        with open(os.path.join(config_dir, "config")) as config:
+            config.write(json.dumps(configuration))
 
 
 # the main function
