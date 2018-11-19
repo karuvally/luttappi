@@ -5,6 +5,8 @@
 import csv
 import os
 import pwd
+import pathlib
+import sys
 
 
 # generate the config directory path
@@ -21,13 +23,18 @@ def get_config_dir():
 
 # check if essential files exist
 def initialize_system():
-    pass # debug
-
     # get config_dir path
+    config_dir = get_config_dir()
 
     # create config_dir if not present
+    if not os.isdir(config_dir):
+        try:
+            pathlib.Path(config_dir).mkdir(parents=True, exist_ok=True)
+        except:
+            print("fatal! configuration directory cannot be created")
+            sys.exit(1)
     
-    # create config_file if not present
+    # initialize config_file if not present
 
 
 # the main function
