@@ -8,6 +8,16 @@ import pwd
 import pathlib
 import sys
 import json
+import threading
+
+
+# retrieve configuration
+def read_configuration(value):
+    # get configuration directory
+    
+    # read configuration from file
+
+    # return specified value
 
 
 # generate the config directory path
