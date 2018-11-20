@@ -30,12 +30,18 @@ def read_configuration(key):
 # store configuration
 def write_configuration(key, value):
     # get the configuration directory
+    config_dir = get_config_dir()
 
     # read configuration file
+    with open(os.path.join(config_dir, "config")) as config_file:
+        configuration = json.loads(config_file.read())
     
     # update the configuration
+    configuration.update({key: value})
 
     # write new configuration to file
+    with open(os.path.join(config_dir, "config"), "w") as config_file:
+        config_file.write(json.dumps(configuration))
 
 
 # generate the config directory path
