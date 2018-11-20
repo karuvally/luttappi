@@ -12,12 +12,19 @@ import threading
 
 
 # retrieve configuration
-def read_configuration(value):
+def read_configuration(key):
     # get configuration directory
+    config_dir = get_config_dir()
     
     # read configuration from file
+    with open(os.path.join(config_dir, "config")) as config_file:
+        configuration = json.loads(config_file.read())
 
     # return specified value
+    if key in configuration:
+        return configuration[key]
+    else:
+        return None
 
 
 # generate the config directory path
