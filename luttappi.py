@@ -27,6 +27,17 @@ def read_configuration(key):
         return None
 
 
+# store configuration
+def write_configuration(key, value):
+    # get the configuration directory
+
+    # read configuration file
+    
+    # update the configuration
+
+    # write new configuration to file
+
+
 # generate the config directory path
 def get_config_dir():
     # get the current username
