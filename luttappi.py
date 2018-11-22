@@ -63,7 +63,7 @@ def write_configuration(key, value):
 # generate the config directory path
 def get_config_dir():
     # get the current username
-    user = pwd.getpwduid(os.getuid())[0]
+    user = pwd.getpwuid(os.getuid())[0]
 
     # generate path
     config_dir = os.path.join("/home", user, ".config", "luttappi")
