@@ -90,6 +90,8 @@ def main():
     initialize_system()
 
     # log sensors in separate thread
+    sensor_thread = threading.Thread(target=log_sensors)
+    sensor_thread.start()
 
     # start the web server
 
