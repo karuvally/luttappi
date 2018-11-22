@@ -21,27 +21,26 @@ def write_to_log(value):
 
 # log the sensors
 def log_sensors(interval):
-    # debug: add loop
+    while True:
+        # get the temperature
+        temperature_raw = subprocess.run(["sensors"], stdout=subprocess.PIPE)
+        temperature_raw = temperature_raw.stdout.decode().split("\n")
 
-    # get the temperature
-    temperature_raw = subprocess.run(["sensors"], stdout=subprocess.PIPE)
-    temperature_raw = temperature_raw.stdout.decode().split("\n")
+        # extract temperature value
+        for line in temperature_raw:
+            strip_index = line.find("°")
 
-    # extract temperature value
-    for line in temperature_raw:
-        strip_index = line.find("°")
+            # get just the numbers
+            if strip_index > 0:
+                line = line[line.index(":")+1 : line.index("°")]
+                temperature = line.lstrip()
+                break
 
-        # get just the numbers
-        if strip_index > 0:
-            line = line[line.index(":")+1 : line.index("°")]
-            temperature = line.lstrip()
-            break
+        # append sensor values to log
+        write_to_log(temperature)
 
-    # append sensor values to log
-    write_to_log(temperature)
-
-    # sleep "interval" seconds
-    time.sleep(interval)
+        # sleep "interval" seconds
+        time.sleep(interval)
 
 
 # retrieve configuration
