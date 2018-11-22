@@ -11,12 +11,16 @@ import json
 import threading
 import csv
 import time
+import subprocess
 
 
 # log the sensors
 def log_sensors():
     while True:
-        # check sensors
+        # poll sensors
+        temperature = subprocess.run(["sensors", "-u"], stdout=subprocess.PIPE)
+        temparature = temperature.stdout.decode()
+        temperature_list = temperature.split("\n")
 
         # append sensor values to log
 
