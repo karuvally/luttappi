@@ -16,15 +16,25 @@ import subprocess
 
 # log the sensors
 def log_sensors():
-    while True:
-        # poll sensors
-        temperature = subprocess.run(["sensors", "-u"], stdout=subprocess.PIPE)
-        temparature = temperature.stdout.decode()
-        temperature_list = temperature.split("\n")
+    # debug: add loop
 
-        # append sensor values to log
+    # get the temperature
+    temperature_raw = subprocess.run(["sensors"], stdout=subprocess.PIPE)
+    temperature_raw = temperature_raw.stdout.decode().split("\n")
 
-        # sleep
+    # extract temperature value
+    for line in temperature_raw:
+        strip_index = line.find("°")
+
+        # get just the numbers
+        if strip_index > 0:
+            line = line[line.index(":")+1 : line.index("°")]
+            temperature = float(line.lstrip())
+            break
+
+    # append sensor values to log
+
+    # sleep
 
 
 # retrieve configuration
