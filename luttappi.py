@@ -121,8 +121,11 @@ def main():
     # create files if they do not exist
     initialize_system()
 
+    # read interval value
+    interval = int(read_configuration("update_interval"))
+
     # log sensors in separate thread
-    sensor_thread = threading.Thread(target=log_sensors)
+    sensor_thread = threading.Thread(target=log_sensors, args=[interval])
     sensor_thread.start()
 
     # start the web server
