@@ -9,6 +9,18 @@ import pathlib
 import sys
 import json
 import threading
+import csv
+import time
+
+
+# log the sensors
+def log_sensors():
+    while True:
+        # check sensors
+
+        # append sensor values to log
+
+        # sleep
 
 
 # retrieve configuration
