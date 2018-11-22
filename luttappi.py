@@ -83,7 +83,7 @@ def initialize_system():
         sys.exit(1)
 
     # create config_dir if not present
-    if not os.isdir(config_dir):
+    if not os.path.isdir(config_dir):
         try:
             pathlib.Path(config_dir).mkdir(parents=True, exist_ok=True)
         except:
@@ -96,7 +96,7 @@ def initialize_system():
             "update_interval": 300
         }
 
-        with open(os.path.join(config_dir, "config")) as config:
+        with open(os.path.join(config_dir, "config"), "w") as config:
             config.write(json.dumps(configuration))
 
 
