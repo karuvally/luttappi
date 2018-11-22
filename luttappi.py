@@ -14,8 +14,13 @@ import time
 import subprocess
 
 
+# write to the sensor log
+def write_to_log(value):
+    pass
+
+
 # log the sensors
-def log_sensors():
+def log_sensors(interval):
     # debug: add loop
 
     # get the temperature
@@ -29,12 +34,14 @@ def log_sensors():
         # get just the numbers
         if strip_index > 0:
             line = line[line.index(":")+1 : line.index("°")]
-            temperature = float(line.lstrip())
+            temperature = line.lstrip()
             break
 
     # append sensor values to log
+    write_to_log(temperature)
 
-    # sleep
+    # sleep "interval" seconds
+    time.sleep(interval)
 
 
 # retrieve configuration
