@@ -20,11 +20,11 @@ def write_to_log(value):
     config_dir = get_config_dir()
 
     # generate timestamp
-    current_date = time.strftime("%d-%m-%y")
+    log_name = time.strftime("%d-%m-%y")
     current_time = time.strftime("%H:%M:%S")
 
     # write to the log
-    with open(os.path.join(config_dir, "sensor_log"), "a") as log_file:
+    with open(os.path.join(config_dir, logs, log_name), "a") as log_file:
         log_writer = csv.writer(log_file)
         log_writer.writerow([current_date, current_time, value])
 
