@@ -12,6 +12,12 @@ import threading
 import csv
 import time
 import subprocess
+import matplotlib
+
+
+# draw plot from given data
+def draw_plot(data):
+    pass
 
 
 # write to the sensor log
@@ -24,9 +30,9 @@ def write_to_log(value):
     current_time = time.strftime("%H:%M:%S")
 
     # write to the log
-    with open(os.path.join(config_dir, logs, log_name), "a") as log_file:
+    with open(os.path.join(config_dir, log, log_name), "a") as log_file:
         log_writer = csv.writer(log_file)
-        log_writer.writerow([current_date, current_time, value])
+        log_writer.writerow([value, current_time])
 
 
 # log the sensors
