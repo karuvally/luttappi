@@ -108,16 +108,17 @@ def get_config_dir():
 def initialize_system():
     # get config_dir path
     config_dir = get_config_dir()
+    log_dir = os.path.join(config_dir, "log")
 
     # exit if lm_sensors not present
     if not os.path.isfile("/usr/bin/sensors"):
         print("fatal! lm_sensors not found")
         sys.exit(1)
 
-    # create config_dir if not present
-    if not os.path.isdir(config_dir):
+    # create config and log directories if not present
+    if not os.path.isdir(log_dir):
         try:
-            pathlib.Path(config_dir).mkdir(parents=True, exist_ok=True)
+            pathlib.Path(log_dir).mkdir(parents=True, exist_ok=True)
         except:
             print("fatal! configuration directory cannot be created")
             sys.exit(1)
