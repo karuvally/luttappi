@@ -15,8 +15,13 @@ import subprocess
 import matplotlib
 
 
+# read from sensor log
+def read_log(date):
+    pass
+
+
 # draw plot from given data
-def draw_plot(data):
+def draw_plot(data, title, output_file):
     pass
 
 
@@ -141,9 +146,17 @@ def main():
     # read interval value
     interval = int(read_configuration("update_interval"))
 
+"""
     # log sensors in separate thread
     sensor_thread = threading.Thread(target=log_sensors, args=[interval])
     sensor_thread.start()
+"""
+    
+    # debug
+    current_date = time.strftime("%d-%m-%y")
+    data = read_log(current_date)
+    draw_plot(data, "Sample Plot", "sample")
+
 
     # start the web server
 
