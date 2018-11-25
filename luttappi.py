@@ -35,7 +35,7 @@ def write_to_log(value):
     current_time = time.strftime("%H:%M:%S")
 
     # write to the log
-    with open(os.path.join(config_dir, log, log_name), "a") as log_file:
+    with open(os.path.join(config_dir, "logs", log_name), "a") as log_file:
         log_writer = csv.writer(log_file)
         log_writer.writerow([value, current_time])
 
@@ -113,7 +113,7 @@ def get_config_dir():
 def initialize_system():
     # get config_dir path
     config_dir = get_config_dir()
-    log_dir = os.path.join(config_dir, "log")
+    log_dir = os.path.join(config_dir, "logs")
 
     # exit if lm_sensors not present
     if not os.path.isfile("/usr/bin/sensors"):
@@ -146,18 +146,10 @@ def main():
     # read interval value
     interval = int(read_configuration("update_interval"))
 
-"""
     # log sensors in separate thread
     sensor_thread = threading.Thread(target=log_sensors, args=[interval])
     sensor_thread.start()
-"""
     
-    # debug
-    current_date = time.strftime("%d-%m-%y")
-    data = read_log(current_date)
-    draw_plot(data, "Sample Plot", "sample")
-
-
     # start the web server
 
 
