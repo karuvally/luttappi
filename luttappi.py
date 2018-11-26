@@ -20,9 +20,15 @@ from sklearn.cluster import KMeans
 
 
 # do k means clustering
-def plot_cluster(data):
+def plot_cluster():
     # essential variables
     formatted_data = []
+
+    # get current date
+    date = time.strftime("%d-%m-%y")
+
+    # get the data
+    data = read_log(date)
 
     # extract values in required format
     for row in data["temp_values"]:
@@ -213,9 +219,11 @@ def main():
     plot_thread = threading.Thread(target=plot_points,
         args=["Temperature Plot", "plot.png"])
     plot_thread.start()
-    
-    # start the web server
 
+    # do clustering
+    cluster_thread = threading.Thread(target=plot_cluster)
+    cluster_thread.start()
+    
 
 # call the main function
 main()
