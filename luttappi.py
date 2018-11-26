@@ -15,10 +15,14 @@ import subprocess
 import matplotlib
 import matplotlib.dates as mdates
 import numpy as np
+import datetime
 
 
 # read from sensor log
 def read_log(date):
+    # essential variables
+    data = {}
+
     # get the config directory
     config_dir = get_config_dir()
 
@@ -29,8 +33,19 @@ def read_log(date):
     with open(log_file) as csv_file:
         csv_reader = csv.reader(csv_file)
 
+        temp_values = []
+        time_values = []
         for row in csv_reader:
-            data.append(row)
+            temp_values.append(row[0])
+            time_values.append(row[1])
+
+    # insert the values to data
+    data.update({
+        "temp_values": temp_values,
+        "time_values": time_values
+    })
+
+    print(data) # debug
 
 
 # draw plot from given data
