@@ -1,10 +1,14 @@
 # Luttappi 
 
-Luttappi is a simple daemon to do CPU temperature plotting an analytics
+Luttappi is a simple daemon to do temperature plotting and analytics
 
 ## Introduction
 
-
+Luttappi leverages the power of Python, lm-sensors, scikit-learn and Pyplot
+to log data from system temperature sensors, plot the collected values and do
+machine learning. Luttappi uses a non-supervised algorithm called K-Means
+Clustering to cluster the logged values and thereby find where the system
+temperatures usually lie.
 
 ### Prerequisites
 
