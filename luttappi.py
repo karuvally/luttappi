@@ -38,7 +38,7 @@ def read_log(date):
 
     # return the values
     return{
-        "temp_values": np.array(temp_values),
+        "temp_values": temp_values,
         "time_values": time_values
     }
 
