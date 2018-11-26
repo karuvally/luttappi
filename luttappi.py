@@ -22,8 +22,11 @@ def read_log(date):
     # get the config directory
     config_dir = get_config_dir()
 
+    # generate log file path
+    log_file = os.path.join(config_dir, "logs", date)
+
     # extract the values
-    temperature, time_val = np.loadtxt(date, unpack=True,
+    temperature, time_val = np.loadtxt(log_file, unpack=True,
         converters={1: mdates.strpdate2num("%H:%M:%S")})
 
 
