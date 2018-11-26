@@ -33,6 +33,8 @@ temperatures usually lie.
 
 * [Python](http://www.python.org) - An awesome language
 * [scikit-learn](http://www.python.org) - Machine Learning for Python
+* [lm-sensors](https://github.com/lm-sensors/lm-sensors) - Get sensor values
+* [Matplotlib](https://matplotlib.org/) - Plot your data points
 
 
 ## Authors
