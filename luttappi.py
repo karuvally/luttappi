@@ -31,6 +31,10 @@ def plot_cluster(data):
     # convert formatted data into numpy array
     formatted_data = np.array(formatted_data)
 
+    # do the clustering
+    kmeans = KMeans(n_clusters=2)
+    kmeans.fit(formatted_data)
+
 
 # read from sensor log
 def read_log(date):
