@@ -46,8 +46,11 @@ def read_log(date):
 # draw plot from given data
 def draw_plot(data, title, output_file):
     # draw the plot
-    output = plt.plot(data["time_values"], data["temp_values"])
-    output.savefig("output.png")
+    output = plt.plot(data["temp_values"])
+    plt.draw()
+
+    # save the plot to file
+    plt.savefig("output.png")
 
 
 # write to the sensor log
@@ -183,4 +186,4 @@ def main():
 
 # debug
 data = read_log("26-11-18")
-# draw_plot(data, "Temperature Plot", "output.png")
+draw_plot(data, "Temperature Plot", "output.png")
