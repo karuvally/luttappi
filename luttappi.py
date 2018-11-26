@@ -69,13 +69,19 @@ def read_log(date):
 
 
 # draw plot from given data
-def plot_points(data, title, output_file):
+def plot_points(title, output_file):
+    # get current date
+    date = time.strftime("%d-%m-%y")
+
+    # get the data
+    data = read_log(date)
+
     # draw the plot
     output = plt.plot(data["temp_values"])
     plt.draw()
 
     # save the plot to file
-    plt.savefig("output.png")
+    plt.savefig("simple_plot.png")
 
 
 # write to the sensor log
@@ -202,13 +208,14 @@ def main():
     # log sensors in separate thread
     sensor_thread = threading.Thread(target=log_sensors, args=[interval])
     sensor_thread.start()
+
+    # draw simple plot
+    plot_thread = threading.Thread(target=plot_points)
+    plot_thread.start()
     
     # start the web server
 
 
 # call the main function
-# main()
+main()
 
-# debug
-data = read_log("26-11-18")
-plot_cluster(data)
