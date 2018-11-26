@@ -32,8 +32,15 @@ def plot_cluster(data):
     formatted_data = np.array(formatted_data)
 
     # do the clustering
-    kmeans = KMeans(n_clusters=2)
+    kmeans = KMeans(n_clusters=5)
     kmeans.fit(formatted_data)
+
+    # plot the cluster
+    output = plt.scatter(formatted_data[:,0], formatted_data[:,1],
+        c=kmeans.labels_, cmap="rainbow")
+
+    plt.draw()
+    plt.savefig("cluster.png")
 
 
 # read from sensor log
