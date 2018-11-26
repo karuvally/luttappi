@@ -44,7 +44,7 @@ def read_log(date):
 
 
 # draw plot from given data
-def draw_plot(data, title, output_file):
+def plot_points(data, title, output_file):
     # draw the plot
     output = plt.plot(data["temp_values"])
     plt.draw()
@@ -186,4 +186,4 @@ def main():
 
 # debug
 data = read_log("26-11-18")
-draw_plot(data, "Temperature Plot", "output.png")
+plot_points(data, "Temperature Plot", "output.png")
