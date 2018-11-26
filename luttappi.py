@@ -20,13 +20,16 @@ from sklearn.cluster import KMeans
 
 
 # do k means clustering
-def cluster(data):
+def plot_cluster(data):
     # essential variables
     formatted_data = []
 
     # extract values in required format
     for row in data["temp_values"]:
         formatted_data.append([row, row]) 
+
+    # convert formatted data into numpy array
+    formatted_data = np.array(formatted_data)
 
 
 # read from sensor log
@@ -197,3 +200,4 @@ def main():
 
 # debug
 data = read_log("26-11-18")
+plot_cluster(data)
