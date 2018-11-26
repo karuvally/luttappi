@@ -13,9 +13,9 @@ import csv
 import time
 import subprocess
 import matplotlib
-import matplotlib.dates as mdates
 import numpy as np
 import datetime
+from matplotlib import pyplot as plt
 
 
 # read from sensor log
@@ -33,19 +33,21 @@ def read_log(date):
         temp_values = []
         time_values = []
         for row in csv_reader:
-            temp_values.append(row[0])
+            temp_values.append(float(row[0]))
             time_values.append(row[1])
 
     # return the values
     return{
-        "temp_values": temp_values,
+        "temp_values": np.array(temp_values),
         "time_values": time_values
     }
 
 
 # draw plot from given data
 def draw_plot(data, title, output_file):
-    pass
+    # draw the plot
+    output = plt.plot(data["time_values"], data["temp_values"])
+    output.savefig("output.png")
 
 
 # write to the sensor log
@@ -181,3 +183,4 @@ def main():
 
 # debug
 data = read_log("26-11-18")
+# draw_plot(data, "Temperature Plot", "output.png")
