@@ -210,7 +210,8 @@ def main():
     sensor_thread.start()
 
     # draw simple plot
-    plot_thread = threading.Thread(target=plot_points)
+    plot_thread = threading.Thread(target=plot_points,
+        args=["Temperature Plot", "plot.png"])
     plot_thread.start()
     
     # start the web server
