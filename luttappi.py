@@ -12,13 +12,17 @@ import threading
 import csv
 import time
 import subprocess
-import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import numpy as np
 
 
 # read from sensor log
 def read_log(date):
-    pass
+
+    # extract the values
+    temperature, time_val = np.loadtxt(date, unpack=True,
+        converters={1: mdates.strpdate2num("%H:%M:%S")})
 
 
 # draw plot from given data
@@ -156,3 +160,6 @@ def main():
 
 # call the main function
 # main()
+
+# debug
+data = read_log("26-11-18")
