@@ -12,7 +12,7 @@ import threading
 import csv
 import time
 import subprocess
-import matplotlib.pyplot as plt
+import matplotlib
 import matplotlib.dates as mdates
 import numpy as np
 
@@ -26,8 +26,11 @@ def read_log(date):
     log_file = os.path.join(config_dir, "logs", date)
 
     # extract the values
-    temperature, time_val = np.loadtxt(log_file, unpack=True,
-        converters={1: mdates.strpdate2num("%H:%M:%S")})
+    with open(log_file) as csv_file:
+        csv_reader = csv.reader(csv_file)
+
+        for row in csv_reader:
+            data.append(row)
 
 
 # draw plot from given data
