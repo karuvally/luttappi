@@ -18,6 +18,11 @@ import datetime
 from matplotlib import pyplot as plt
 
 
+# do k means clustering
+def cluster():
+    pass
+
+
 # read from sensor log
 def read_log(date):
     # get the config directory
