@@ -16,11 +16,17 @@ import matplotlib
 import numpy as np
 import datetime
 from matplotlib import pyplot as plt
+from sklearn.cluster import KMeans
 
 
 # do k means clustering
-def cluster():
-    pass
+def cluster(data):
+    # essential variables
+    formatted_data = []
+
+    # extract values in required format
+    for row in data["temp_values"]:
+        formatted_data.append([row, row]) 
 
 
 # read from sensor log
@@ -191,4 +197,3 @@ def main():
 
 # debug
 data = read_log("26-11-18")
-plot_points(data, "Temperature Plot", "output.png")
