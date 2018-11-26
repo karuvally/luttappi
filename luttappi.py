@@ -19,6 +19,8 @@ import numpy as np
 
 # read from sensor log
 def read_log(date):
+    # get the config directory
+    config_dir = get_config_dir()
 
     # extract the values
     temperature, time_val = np.loadtxt(date, unpack=True,
