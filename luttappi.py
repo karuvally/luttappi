@@ -13,6 +13,7 @@ import csv
 import time
 import subprocess
 import matplotlib
+import numpy as np
 
 
 # read from sensor log
@@ -154,4 +155,4 @@ def main():
 
 
 # call the main function
-main()
+# main()
