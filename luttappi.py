@@ -210,6 +210,9 @@ def main():
         args=["Temperature Plot", "plot.png"])
     plot_thread.start()
 
+    # setup logging
+    start_logging()
+
 
 # call the main function
 main()
