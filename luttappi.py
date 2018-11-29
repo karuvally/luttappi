@@ -77,7 +77,7 @@ def plot_points(title, output_file):
     plt.draw()
 
     # save the plot to file
-    plt.savefig("simple_plot.png")
+    plt.savefig("static/simple_plot.png")
 
 
 # write to the sensor log
