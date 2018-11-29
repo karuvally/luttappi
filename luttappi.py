@@ -16,37 +16,6 @@ import matplotlib
 import numpy as np
 import datetime
 from matplotlib import pyplot as plt
-from sklearn.cluster import KMeans
-
-
-# do k means clustering
-def plot_cluster():
-    # essential variables
-    formatted_data = []
-
-    # get current date
-    date = time.strftime("%d-%m-%y")
-
-    # get the data
-    data = read_log(date)
-
-    # extract values in required format
-    for row in data["temp_values"]:
-        formatted_data.append([row, row]) 
-
-    # convert formatted data into numpy array
-    formatted_data = np.array(formatted_data)
-
-    # do the clustering
-    kmeans = KMeans(n_clusters=5)
-    kmeans.fit(formatted_data)
-
-    # plot the cluster
-    output = plt.scatter(formatted_data[:,0], formatted_data[:,1],
-        c=kmeans.labels_, cmap="rainbow")
-
-    plt.draw()
-    plt.savefig("cluster.png")
 
 
 # read from sensor log
@@ -220,10 +189,6 @@ def main():
         args=["Temperature Plot", "plot.png"])
     plot_thread.start()
 
-    # do clustering
-    cluster_thread = threading.Thread(target=plot_cluster)
-    cluster_thread.start()
-    
 
 # call the main function
 main()
