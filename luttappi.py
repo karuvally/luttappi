@@ -172,7 +172,7 @@ def initialize_system():
 
     # exit if lm_sensors not present
     if not os.path.isfile("/usr/bin/sensors"):
-        logging.fatal("lm_sensors not found")
+        logging.critical("lm_sensors not found")
         sys.exit(1)
 
     # create config and log directories if not present
@@ -180,7 +180,7 @@ def initialize_system():
         try:
             pathlib.Path(log_dir).mkdir(parents=True, exist_ok=True)
         except:
-            logging.fatal("config directory cannot be created")
+            logging.critical("config directory cannot be created")
             sys.exit(1)
     
     # initialize config_file if not present
