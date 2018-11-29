@@ -18,6 +18,27 @@ import datetime
 from matplotlib import pyplot as plt
 
 
+# setup the logging system
+def start_logging():
+    # define logger format
+    format_string = "[%(asctime)s] %(message)s"
+    date_format = "%Y-%m-%d %H:%M:%S"
+
+    # configure the logger
+    logging.basicConfig(
+        filename = os.path.join(config_dir, "log"),
+        level = logging.DEBUG,
+        format = format_string,
+        datefmt = date_format)
+
+    # print logs to stderr
+    logging.getLogger().addHandler(logging.StreamHandler())
+    
+    # log initial messages
+    logging.info("Luttappi (alpha) is starting up")
+    logging.info("System passed initial checks")
+
+
 # read from sensor log
 def read_log(date):
     # get the config directory
