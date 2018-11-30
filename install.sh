@@ -16,6 +16,14 @@ fi
 mkdir -p /opt/luttappi/src
 python3 -m venv /opt/luttappi
 
+# setup the libraries
+source /opt/luttappi/bin/activate
+pip install --upgrade pip
+pip install wheel
+pip install bottle
+pip install matplotlib
+deactivate
+
 # copy the source file
 cp luttappi.py /opt/luttappi/src/
 chmod 755 /opt/luttappi/src/luttappi.py
