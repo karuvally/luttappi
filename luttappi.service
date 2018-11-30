@@ -1,0 +1,11 @@
+[Unit]
+Description=Luttappi Daemon 
+After=multi-user.target
+
+[Service]
+User=admin
+Type=idle
+ExecStart=/opt/luttappi/bin/python3 /opt/luttappi/src/luttappi.py
+
+[Install]
+WantedBy=multi-user.target

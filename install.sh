@@ -19,3 +19,5 @@ python3 -m venv /opt/luttappi
 # copy the source file
 cp luttappi.py /opt/luttappi/src/
 chmod 755 /opt/luttappi/src/luttappi.py
+
+# setup the service
