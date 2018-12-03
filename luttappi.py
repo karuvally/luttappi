@@ -12,10 +12,9 @@ import threading
 import csv
 import time
 import subprocess
-import matplotlib
-import numpy as np
 import datetime
 from matplotlib import pyplot as plt
+from bokeh.plotting import figure, output_file
 
 
 # setup the logging system
@@ -29,7 +28,8 @@ def start_logging():
         filename = os.path.join(config_dir, "log"),
         level = logging.DEBUG,
         format = format_string,
-        datefmt = date_format)
+        datefmt = date_format
+    )
 
     # print logs to stderr
     logging.getLogger().addHandler(logging.StreamHandler())
@@ -65,10 +65,7 @@ def read_log(date):
 
 
 # draw plot from given data
-def plot_points(title, output_file):
-    # get current date
-    date = time.strftime("%d-%m-%y")
-
+def plot_points(title, date, output_file):
     # get the data
     data = read_log(date)
 
@@ -205,9 +202,12 @@ def main():
     sensor_thread = threading.Thread(target=log_sensors, args=[interval])
     sensor_thread.start()
 
+    # get current date
+    date = time.strftime("%d-%m-%y")
+
     # draw simple plot
     plot_thread = threading.Thread(target=plot_points,
-        args=["Temperature Plot", "plot.png"])
+        args=["Temperature Plot", date, "plot.png"])
     plot_thread.start()
 
     # setup logging

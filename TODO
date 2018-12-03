@@ -1,9 +1,12 @@
 TODO
 ----
-* insert normal user in unit file
-* plot values
+* convert log to JSON
+* plot CPU load
+* use bokeh
+* plot temperature 
 
 DONE
 ----
+* insert normal user in unit file
 * log sensors
 * remove analytics code
