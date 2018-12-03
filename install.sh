@@ -28,6 +28,7 @@ deactivate
 LOGIN_NAME=`logname`
 
 # setup luttappi to run as login user
+sed -i '6s/root/$LOGIN_NAME/' luttappi.service
 
 # copy the source file
 cp luttappi.py /opt/luttappi/src/
