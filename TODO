@@ -1,8 +1,9 @@
 TODO
 ----
+* update README
+* use bokeh
 * convert log to JSON
 * plot CPU load
-* use bokeh
 * plot temperature 
 
 DONE
