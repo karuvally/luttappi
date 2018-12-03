@@ -69,12 +69,12 @@ def plot_points(title, date, output_file):
     # get the data
     data = read_log(date)
 
-    # draw the plot
-    output = plt.plot(data["temp_values"])
-    plt.draw()
+    # set the output file
+    output_file("static/plot.html")
 
-    # save the plot to file
-    plt.savefig("static/simple_plot.png")
+    # draw the plot
+    plot = figure(title=title, x_axis_label="Time", y_axis_label="Temperature")
+    plot.line(data[0], data[1], legend="Celcius", line_width=2)
 
 
 # write to the sensor log
