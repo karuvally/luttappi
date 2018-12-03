@@ -1,8 +1,9 @@
 TODO
 ----
-* remove analytics code
+* insert normal user in unit file
 * plot values
 
 DONE
 ----
 * log sensors
+* remove analytics code

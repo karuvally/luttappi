@@ -24,8 +24,14 @@ pip install bottle
 pip install matplotlib
 deactivate
 
+# get the login user's name
+LOGIN_NAME=`logname`
+
+# setup luttappi to run as login user
+
 # copy the source file
 cp luttappi.py /opt/luttappi/src/
 chmod 755 /opt/luttappi/src/luttappi.py
 
 # setup the service
+
