@@ -5,6 +5,9 @@
 # get the current username
 USER_NAME=`whoami`
 
+# get the login user's name
+LOGIN_NAME=`logname`
+
 # exit if not root
 if [ $USER_NAME != "root" ]
 then
@@ -24,15 +27,17 @@ pip install bottle
 pip install matplotlib
 deactivate
 
-# get the login user's name
-LOGIN_NAME=`logname`
-
-# setup luttappi to run as login user
-sed -i '6s/root/$LOGIN_NAME/' luttappi.service
-
 # copy the source file
 cp luttappi.py /opt/luttappi/src/
 chmod 755 /opt/luttappi/src/luttappi.py
 
-# setup the service
+# copy the service file
+cp luttappi.service /lib/systemd/system/
+chmod 644 /lib/systemd/system/luttappi.service
 
+# setup luttappi to run as login user
+sed -i '6s/root/$LOGIN_NAME/' /lib/systemd/system/luttappi.service
+
+# enable the service
+systemctl enable luttappi.service
+systemctl start luttappi.service
