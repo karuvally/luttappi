@@ -13,7 +13,6 @@ import csv
 import time
 import subprocess
 import datetime
-from matplotlib import pyplot as plt
 from bokeh.plotting import figure, output_file
 
 
