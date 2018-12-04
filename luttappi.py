@@ -73,7 +73,7 @@ def plot_points(title, date, output_file):
 
     # draw the plot
     plot = figure(title=title, x_axis_label="Time", y_axis_label="Temperature")
-    plot.line(data[0], data[1], legend="Celcius", line_width=2)
+    plot.line(data[temp_values], data[time_values], legend="Celcius", line_width=2)
 
 
 # write to the sensor log
@@ -214,5 +214,5 @@ def main():
 
 
 # call the main function
-main()
+# main()
 
