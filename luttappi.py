@@ -13,7 +13,7 @@ import csv
 import time
 import subprocess
 import datetime
-from bokeh.plotting import figure, output_file, push 
+from bokeh.plotting import figure, output_file, save 
 
 
 # setup the logging system
@@ -76,7 +76,7 @@ def plot_points(title, date, output):
     plot.line(data["temp_values"], data["temp_values"], legend="Celcius", line_width=2)
 
     # generate the plot
-    push(plot)
+    save(plot)
 
 
 # write to the sensor log
