@@ -13,7 +13,7 @@ import csv
 import time
 import subprocess
 import datetime
-from bokeh.plotting import figure, output_file
+from bokeh.plotting import figure, output_file, show
 
 
 # setup the logging system
