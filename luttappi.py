@@ -69,7 +69,7 @@ def plot_points(title, date, output_file):
     data = read_log(date)
 
     # set the output file
-    output_file("static/plot.html")
+    output_file(filename=output_file, root_dir="static")
 
     # draw the plot
     plot = figure(title=title, x_axis_label="Time", y_axis_label="Temperature")
