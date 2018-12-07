@@ -102,7 +102,7 @@ def plot_points(plot_title, date, output):
         save(plot)
 
         # sleep the specified interval
-        interval = read_config("update_interval")
+        interval = read_configuration("update_interval")
         time.sleep(interval)
 
 
