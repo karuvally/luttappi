@@ -209,7 +209,7 @@ def main():
 
     # draw simple plot
     plot_thread = threading.Thread(target=plot_points,
-        args=["Temperature Plot", date, "plot.png"])
+        args=["Temperature Plot", date, "plot.html"])
     plot_thread.start()
 
     # setup logging
