@@ -64,7 +64,7 @@ def read_log(date):
 
 
 # draw plot from given data
-def plot_points(title, date, output):
+def plot_points(plot_title, date, output):
     # get the data
     data = read_log(date)
 
@@ -73,7 +73,7 @@ def plot_points(title, date, output):
 
     # initialize the plot
     plot = figure(
-        title = "Temperature History on " + date,
+        title = plot_title,
         x_axis_label = "Time (HH:MM:SS)",
         y_axis_label = "Temperature (°C)",
     )
@@ -81,7 +81,7 @@ def plot_points(title, date, output):
     # prepare the plot
     plot.line(
         x = x_values,
-        y = temp_values,
+        y = data["temp_values"],
         line_width = 2
     )
 
