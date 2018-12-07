@@ -1,13 +1,14 @@
 TODO
 ----
+* better aesthetics
 * update README
-* use bokeh
-* convert log to JSON
 * plot CPU load
-* plot temperature 
 
 DONE
 ----
+* plot temperature 
+* convert log to JSON
+* use bokeh
 * insert normal user in unit file
 * log sensors
 * remove analytics code
