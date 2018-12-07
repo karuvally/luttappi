@@ -13,11 +13,15 @@ import csv
 import time
 import subprocess
 import datetime
+import logging
 from bokeh.plotting import figure, output_file, save 
 
 
 # setup the logging system
 def start_logging():
+    # essential variables
+    config_dir = get_config_dir()
+
     # define logger format
     format_string = "[%(asctime)s] %(message)s"
     date_format = "%Y-%m-%d %H:%M:%S"
