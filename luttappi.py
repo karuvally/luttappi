@@ -68,6 +68,9 @@ def plot_points(plot_title, date, output):
     # get the data
     data = read_log(date)
 
+    # prepare dummy x_values
+    x_values = [x for x in range(len(data["temp_values"]))]
+
     # set the output file
     output_file(os.path.join("static", output))
 
@@ -84,6 +87,14 @@ def plot_points(plot_title, date, output):
         y = data["temp_values"],
         line_width = 2
     )
+
+    # pair x_values with time_values
+    x_axis_labels = {}
+    for i in range(len(x_values)):
+        x_axis_labels.update({x_values[i]: data["time_values"][i]})
+
+    # set the labels
+    plot.xaxis.major_label_overrides = x_axis_labels
 
     # generate the plot
     save(plot)
