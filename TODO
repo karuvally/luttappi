@@ -1,5 +1,6 @@
 TODO
 ----
+* if low data points, show warning
 * units should be stored, accessed from logs
 * better aesthetics
 * update README

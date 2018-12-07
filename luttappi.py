@@ -246,5 +246,5 @@ def main():
 
 
 # call the main function
-# main()
+main()
 
