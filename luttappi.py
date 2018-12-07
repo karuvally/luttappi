@@ -229,8 +229,10 @@ def main():
     date = time.strftime("%d-%m-%y")
 
     # draw simple plot
-    plot_thread = threading.Thread(target=plot_points,
-        args=["Temperature Plot", date, "plot.html"])
+    plot_thread = threading.Thread(
+        target = plot_points,
+        args = ["Temperature Plot", date, "plot.html"]
+    )
     plot_thread.start()
 
     # setup logging
