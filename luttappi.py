@@ -71,9 +71,12 @@ def plot_points(title, date, output):
     # set the output file
     output_file(os.path.join("static", output))
 
-    # setup the plot 
-    plot = figure(title=title, x_axis_label="Time", y_axis_label="Temperature")
-    plot.line(data["temp_values"], data["temp_values"], legend="Celcius", line_width=2)
+    # initialize the plot
+    plot = figure(
+        title = "Temperature History on " + date,
+        x_axis_label = "Time (HH:MM:SS)",
+        y_axis_label = "Temperature (°C)",
+    )
 
     # generate the plot
     save(plot)
