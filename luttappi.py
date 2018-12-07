@@ -78,6 +78,13 @@ def plot_points(title, date, output):
         y_axis_label = "Temperature (°C)",
     )
 
+    # prepare the plot
+    plot.line(
+        x = x_values,
+        y = temp_values,
+        line_width = 2
+    )
+
     # generate the plot
     save(plot)
 
