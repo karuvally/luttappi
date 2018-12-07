@@ -241,7 +241,7 @@ def main():
     # draw simple plot
     plot_thread = threading.Thread(
         target = plot_points,
-        args = ["Temperature Plot", date, "plot.html"]
+        args = ["Temperature History on " + date, date, "output.html"]
     )
     plot_thread.start()
 
