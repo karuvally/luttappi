@@ -1,14 +1,15 @@
 # Luttappi 
 
-Luttappi is a simple daemon to do temperature plotting and analytics
+Luttappi is a simple daemon to do temperature logging, plotting and analytics
 
 ## Introduction
 
-Luttappi leverages the power of Python, lm-sensors, scikit-learn and Pyplot
-to log data from system temperature sensors, plot the collected values and do
-machine learning. Luttappi uses a non-supervised algorithm called K-Means
-Clustering to cluster the logged values and thereby find where the system
-temperatures usually lie.
+Luttappi leverages the power of Python, lm-sensors, scikit-learn and bokeh
+plotting library to log data from system temperature sensors, plot the
+collected values and do generate useful information out of the collected data.
+
+Luttappi is still far from being completed, and even lacks a built in web
+server to output the data.
 
 ### Prerequisites
 
@@ -21,7 +22,7 @@ temperatures usually lie.
 
     $ python3 -m venv luttappi && cd luttappi
 
-    $ git clone https://github.com/karuvally/project_green.git src
+    $ git clone https://github.com/karuvally/luttappi.git src
 
     $ source bin/activate
 

@@ -1,5 +1,7 @@
 TODO
 ----
+* plot only when visitor requests
+* serve the plotted data!
 * if low data points, show warning
 * units should be stored, accessed from logs
 * better aesthetics
