@@ -76,6 +76,9 @@ def read_log(date):
 
 # draw plot from given data
 def plot_points(plot_title, date, output):
+    # get config directory path
+    config_dir = get_config_dir()
+
     # run everything on an infinite loop
     while True:
         # get the data
@@ -85,7 +88,7 @@ def plot_points(plot_title, date, output):
         x_values = [x for x in range(len(data["temp_values"]))]
 
         # set the output file
-        output_file(os.path.join("static", output))
+        output_file(os.path.join(config_dir, output))
 
         # initialize the plot
         plot = figure(
