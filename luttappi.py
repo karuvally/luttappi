@@ -15,6 +15,7 @@ import subprocess
 import datetime
 import logging
 from bokeh.plotting import figure, output_file, save 
+from bottle import get, static_file, run
 
 
 # setup the logging system
@@ -247,6 +248,9 @@ def main():
 
     # setup logging
     start_logging()
+
+    # start the web server
+    run(host="0.0.0.0", port=9000, debug=True)
 
 
 # call the main function
