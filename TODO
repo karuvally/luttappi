@@ -1,7 +1,7 @@
 TODO
 ----
+* responsive plot
 * plot only when visitor requests
-* serve the plotted data!
 * if low data points, show warning
 * units should be stored, accessed from logs
 * better aesthetics
@@ -10,6 +10,7 @@ TODO
 
 DONE
 ----
+* serve the plotted data!
 * plot temperature 
 * convert log to JSON
 * use bokeh

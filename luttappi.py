@@ -14,7 +14,7 @@ import time
 import subprocess
 import datetime
 import logging
-from bokeh.plotting import figure, output_file, save 
+from bokeh.plotting import figure, output_file, save, gridplot
 from bottle import get, static_file, run
 
 
@@ -108,6 +108,9 @@ def plot_points(plot_title, date, output):
 
         # set the labels
         plot.xaxis.major_label_overrides = x_axis_labels
+
+        # force the plot to fill the screen
+        plot = gridplot([[plot]], sizing_mode="stretch_both")
 
         # generate the plot
         save(plot)
