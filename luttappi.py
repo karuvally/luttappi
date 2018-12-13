@@ -21,7 +21,10 @@ from bottle import get, static_file, run
 # serve the output
 @get("/")
 def serve_output():
-    return static_file("output.html", root="static")
+    # get config directory path
+    config_dir = get_config_dir()
+
+    return static_file("output.html", root=config_dir)
 
 
 # setup the logging system
