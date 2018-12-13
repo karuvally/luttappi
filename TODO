@@ -1,6 +1,5 @@
 TODO
 ----
-* responsive plot
 * plot only when visitor requests
 * if low data points, show warning
 * units should be stored, accessed from logs
@@ -10,6 +9,7 @@ TODO
 
 DONE
 ----
+* responsive plot
 * serve the plotted data!
 * plot temperature 
 * convert log to JSON
