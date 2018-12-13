@@ -18,6 +18,12 @@ from bokeh.plotting import figure, output_file, save
 from bottle import get, static_file, run
 
 
+# serve the output
+@get("/")
+def serve_output():
+    return static_file("output.html", root="static")
+
+
 # setup the logging system
 def start_logging():
     # essential variables
