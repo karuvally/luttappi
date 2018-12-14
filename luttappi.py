@@ -27,13 +27,13 @@ def serve_output():
     # get current date
     date = time.strftime("%d-%m-%y")
 
-    # get current_time
-    # get last_update_time of log
-    # if current_time - last_update_time > 5 mins
-    # then draw new plot
+    # get log and output file timestamps
+    log_timestamp = os.path.mtime(os.path.join(config_dir, "logs", date))
+    output_timestamp = os.path.mtime(os.path.join(config_dir, "output.html"))
 
-    # draw simple plot
-    plot_points("Temperature Log on " + date, date, "output.html")
+    # if newer log, plot
+    if log_timestamp > output_timestamp:
+        plot_points("Temperature Log on " + date, date, "output.html")
 
     return static_file("output.html", root=config_dir)
 
