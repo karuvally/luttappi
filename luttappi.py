@@ -82,49 +82,47 @@ def plot_points(plot_title, date, output):
     # get config directory path
     config_dir = get_config_dir()
 
-    # run everything on an infinite loop
-    while True:
-        # get the data
-        data = read_log(date)
+    # get the data
+    data = read_log(date)
 
-        # prepare dummy x_values
-        x_values = [x for x in range(len(data["temp_values"]))]
+    # prepare dummy x_values
+    x_values = [x for x in range(len(data["temp_values"]))]
 
-        # set the output file
-        output_file(os.path.join(config_dir, output))
+    # set the output file
+    output_file(os.path.join(config_dir, output))
 
-        # initialize the plot
-        plot = figure(
-            title = plot_title,
-            x_axis_label = "Time (HH:MM:SS)",
-            y_axis_label = "Temperature (°C)",
-        )
+    # initialize the plot
+    plot = figure(
+        title = plot_title,
+        x_axis_label = "Time (HH:MM:SS)",
+        y_axis_label = "Temperature (°C)",
+    )
 
-        # prepare the plot
-        plot.line(
-            x = x_values,
-            y = data["temp_values"],
-            line_width = 2
-        )
+    # prepare the plot
+    plot.line(
+        x = x_values,
+        y = data["temp_values"],
+        line_width = 2
+    )
 
-        # pair x_values with time_values
-        x_axis_labels = {}
-        for i in range(len(x_values)):
-            x_axis_labels.update({x_values[i]: data["time_values"][i]})
+    # pair x_values with time_values
+    x_axis_labels = {}
+    for i in range(len(x_values)):
+        x_axis_labels.update({x_values[i]: data["time_values"][i]})
 
-        # set the labels
-        plot.xaxis.major_label_overrides = x_axis_labels
+    # set the labels
+    plot.xaxis.major_label_overrides = x_axis_labels
 
-        # force the plot to fill the screen
-        plot = gridplot([[plot]], sizing_mode="stretch_both")
+    # force the plot to fill the screen
+    plot = gridplot([[plot]], sizing_mode="stretch_both")
 
-        # delete older plot, save the new plot
-        os.remove(os.path.join(config_dir, output)
-        save(plot)
+    # delete older plot, save the new plot
+    os.remove(os.path.join(config_dir, output)
+    save(plot)
 
-        # sleep the specified interval
-        interval = read_configuration("update_interval")
-        time.sleep(interval)
+    # sleep the specified interval
+    interval = read_configuration("update_interval")
+    time.sleep(interval)
 
 
 # write to the sensor log
