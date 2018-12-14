@@ -118,7 +118,8 @@ def plot_points(plot_title, date, output):
         # force the plot to fill the screen
         plot = gridplot([[plot]], sizing_mode="stretch_both")
 
-        # generate the plot
+        # delete older plot, save the new plot
+        os.remove(os.path.join(config_dir, output)
         save(plot)
 
         # sleep the specified interval
