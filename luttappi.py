@@ -128,7 +128,7 @@ def plot_points(plot_title, date, output):
     plot = gridplot([[plot]], sizing_mode="stretch_both")
 
     # delete older plot, save the new plot
-    os.remove(os.path.join(config_dir, output)
+    os.remove(os.path.join(config_dir, output))
     save(plot)
 
 
