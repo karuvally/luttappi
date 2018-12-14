@@ -28,11 +28,11 @@ def serve_output():
     date = time.strftime("%d-%m-%y")
 
     # get log and output file timestamps
-    log_timestamp = os.path.mtime(os.path.join(config_dir, "logs", date))
-    output_timestamp = os.path.mtime(os.path.join(config_dir, "output.html"))
+    log_timestamp = os.path.getmtime(os.path.join(config_dir, "logs", date))
+    out_timestamp = os.path.getmtime(os.path.join(config_dir, "output.html"))
 
     # if newer log, plot
-    if log_timestamp > output_timestamp:
+    if log_timestamp > out_timestamp:
         plot_points("Temperature Log on " + date, date, "output.html")
 
     return static_file("output.html", root=config_dir)
