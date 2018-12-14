@@ -1,9 +1,7 @@
 TODO
 ----
-* fix the date issue
 * make bokeh tools visible
 * convert log to JSON
-* plot only when visitor requests
 * if low data points, show warning
 * units should be stored, accessed from logs
 * better aesthetics
@@ -11,6 +9,8 @@ TODO
 
 DONE
 ----
+* plot only when visitor requests
+* fix the date issue
 * update README
 * responsive plot
 * serve the plotted data!

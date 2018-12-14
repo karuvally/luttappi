@@ -8,9 +8,8 @@ Luttappi leverages the power of Python, lm-sensors, scikit-learn and bokeh
 plotting library to log data from system temperature sensors, plot the
 collected values and do generate useful information out of the collected data.
 
-Luttappi is still far from being completed, and even lacks a built in web
-server to output the data. Any help is highly appreciated. Visit the issues
-section for the list of things that needs to be fixed.
+Luttappi is still far from being completed and any help is highly appreciated.
+Visit the issues section for the list of things that needs to be fixed.
 
 ### Prerequisites
 
