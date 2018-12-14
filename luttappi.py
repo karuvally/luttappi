@@ -24,6 +24,17 @@ def serve_output():
     # get config directory path
     config_dir = get_config_dir()
 
+    # get current date
+    date = time.strftime("%d-%m-%y")
+
+    # get current_time
+    # get last_update_time of log
+    # if current_time - last_update_time > 5 mins
+    # then draw new plot
+
+    # draw simple plot
+    plot_points("Temperature Log on " + date, date, "output.html")
+
     return static_file("output.html", root=config_dir)
 
 
@@ -245,16 +256,6 @@ def main():
     # log sensors in separate thread
     sensor_thread = threading.Thread(target=log_sensors, args=[interval])
     sensor_thread.start()
-
-    # get current date
-    date = time.strftime("%d-%m-%y")
-
-    # draw simple plot
-    plot_thread = threading.Thread(
-        target = plot_points,
-        args = ["Temperature Log on " + date, date, "output.html"]
-    )
-    plot_thread.start()
 
     # setup logging
     start_logging()
