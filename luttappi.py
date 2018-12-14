@@ -120,10 +120,6 @@ def plot_points(plot_title, date, output):
     os.remove(os.path.join(config_dir, output)
     save(plot)
 
-    # sleep the specified interval
-    interval = read_configuration("update_interval")
-    time.sleep(interval)
-
 
 # write to the sensor log
 def write_to_log(value):
