@@ -64,7 +64,7 @@ def start_logging():
 
 
 # read from sensor log
-def read_log(date):
+def read_temp_log(date):
     # get the config directory
     config_dir = get_config_dir()
 
@@ -94,7 +94,7 @@ def plot_points(plot_title, date, output):
     config_dir = get_config_dir()
 
     # get the data
-    data = read_log(date)
+    data = read_temp_log(date)
 
     # prepare dummy x_values
     x_values = [x for x in range(len(data["temp_values"]))]
