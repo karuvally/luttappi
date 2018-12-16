@@ -24,15 +24,14 @@ def serve_output():
     # essential variables
     config_dir = get_config_dir()
     plot_graph = False
-    temp_log_path = os.path.join(config_dir, "logs", date)
-    output_path = os.path.join(config_dir, "output.html")
-
-    # get config directory path
-    config_dir = get_config_dir()
 
     # get current date
     date = time.strftime("%d-%m-%y")
 
+    # get output and log file paths
+    temp_log_path = os.path.join(config_dir, "logs", date)
+    output_path = os.path.join(config_dir, "output.html")
+    
     # get log and output file timestamps
     if os.path.exists(temp_log_path):
         log_timestamp = os.path.getmtime(os.path.join(
