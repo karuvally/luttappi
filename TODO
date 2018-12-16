@@ -1,5 +1,6 @@
 TODO
 ----
+* changing color per y value
 * make bokeh tools visible
 * convert log to JSON
 * if low data points, show warning

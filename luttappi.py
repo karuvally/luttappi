@@ -147,25 +147,33 @@ def write_to_log(value):
         log_writer.writerow([value, current_time])
 
 
-# log the sensors
+# log the sensors, debug: can we make this more pythonic?
 def log_sensors(interval):
     while True:
-        # get the temperature
-        temperature_raw = subprocess.run(["sensors"], stdout=subprocess.PIPE)
-        temperature_raw = temperature_raw.stdout.decode().split("\n")
+        temperature = 0
 
-        # extract temperature value
-        for line in temperature_raw:
-            strip_index = line.find("°")
+        # get two temperature readings
+        for i in range(2):
+            temperature_raw = subprocess.run(
+                ["sensors"], stdout=subprocess.PIPE
+            )
+            temperature_raw = temperature_raw.stdout.decode().split("\n")
 
-            # get just the numbers
-            if strip_index > 0:
-                line = line[line.index(":")+1 : line.index("°")]
-                temperature = line.lstrip()
-                break
+            # extract temperature value
+            for line in temperature_raw:
+                strip_index = line.find("°")
 
-        # append sensor values to log
-        write_to_log(temperature)
+                # get just the numbers
+                if strip_index > 0:
+                    line = line[line.index(":")+1 : line.index("°")]
+                    temperature += float(line.lstrip())
+                    break
+
+            # sleep ten seconds
+            sleep(10)
+
+        # append mean of sensor values to log
+        write_to_log(temperature/2)
 
         # sleep "interval" seconds
         time.sleep(interval)
