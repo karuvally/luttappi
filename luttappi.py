@@ -22,6 +22,7 @@ from bottle import get, static_file, run
 @get("/")
 def serve_output():
     # essential variables
+    config_dir = get_config_dir()
     plot_graph = False
     temp_log_path = os.path.join(config_dir, "logs", date)
     output_path = os.path.join(config_dir, "output.html")
