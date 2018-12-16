@@ -21,6 +21,11 @@ from bottle import get, static_file, run
 # serve the output
 @get("/")
 def serve_output():
+    # essential variables
+    plot_graph = False
+    temp_log_path = os.path.join(config_dir, "logs", date)
+    output_path = os.path.join(config_dir, "output.html")
+
     # get config directory path
     config_dir = get_config_dir()
 
@@ -28,11 +33,20 @@ def serve_output():
     date = time.strftime("%d-%m-%y")
 
     # get log and output file timestamps
-    log_timestamp = os.path.getmtime(os.path.join(config_dir, "logs", date))
-    out_timestamp = os.path.getmtime(os.path.join(config_dir, "output.html"))
+    if os.path.exists(temp_log_path):
+        log_timestamp = os.path.getmtime(os.path.join(
+            config_dir, "logs", date)
+        )
+        out_timestamp = os.path.getmtime(os.path.join(
+            config_dir, "output.html")
+        )
 
-    # if newer log, plot
-    if log_timestamp > out_timestamp:
+        if log_timestamp > out_timestamp:
+            plot_graph = True
+    else:
+        plot_graph = True
+
+    if plot_graph:
         plot_points("Temperature Log on " + date, date, "output.html")
 
     return static_file("output.html", root=config_dir)
