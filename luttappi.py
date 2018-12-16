@@ -170,7 +170,7 @@ def log_sensors(interval):
                     break
 
             # sleep ten seconds
-            sleep(10)
+            time.sleep(10)
 
         # append mean of sensor values to log
         write_to_log(temperature/2)
