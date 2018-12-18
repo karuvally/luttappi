@@ -145,6 +145,9 @@ def plot_points(plot_title, date, output):
     os.remove(os.path.join(config_dir, output))
     save(plot)
 
+    # log!
+    logging.info("plot generated")
+
 
 # write to the sensor log
 def write_to_log(value):
